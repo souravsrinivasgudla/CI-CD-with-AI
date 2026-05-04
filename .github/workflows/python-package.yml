@@ -1,2 +1,1 @@
-pip install -r day3/requirements.txt
-cd day3 && pytest
+updated workflow content
