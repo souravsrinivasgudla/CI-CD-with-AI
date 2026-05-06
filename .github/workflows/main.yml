@@ -1,7 +1,12 @@
-name: CI-CD
-on: [push]
+name: CI-CD-with-AI
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -31,6 +36,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build and push Docker image
         run: |
-          docker build -t CI-CD-with-AI:latest .
-          docker tag CI-CD-with-AI:latest ${{ secrets.DOCKER_USERNAME }}/CI-CD-with-AI:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/CI-CD-with-AI:latest
+          docker build -t ai-cicd-agent-day3:latest .
+          docker tag ai-cicd-agent-day3:latest ${{ secrets.DOCKER_USERNAME }}/ai-cicd-agent-day3:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/ai-cicd-agent-day3:latest
